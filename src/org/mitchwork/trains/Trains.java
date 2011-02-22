@@ -24,19 +24,24 @@ public class Trains {
 	public Route r8 = new Route("EB3");
 	public Route r9 = new Route("AE7");
 	
+	// Given Trips
+	public Trip t1 = new Trip("A-B-C",9);
+	public Trip t2 = new Trip("A-D-C",13);
+	public Trip t3 = new Trip("A-E-B-C-D",22);
+	
 	public static void main(String[] args) throws IOException {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter Route: ");
 		routeInput = scanner.next();
-		createRoute(routeInput);
+		
 		System.out.println("Bitte b eingeben: ");
 		//b = scanner.nextInt();
 		
 	}
 
-	private static void createRoute(String routeInput2) {
-		// TODO Auto-generated method stub
-		
+	private Trip getShortestTrip(City startCity, City endCity) {
+		// TODO Create method
+		return null;
 	}
 
 }
