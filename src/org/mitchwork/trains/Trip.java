@@ -44,5 +44,28 @@ public class Trip {
 		stops = _stops;
 		routes = _routes;
 	}
+	
+	/**
+	 * A constructor that accepts only a String of City-shortcodes, in the format: A-B-C-D-E
+	 * @param trip
+	 */
+	public Trip(String trip) {
+		String[] cityCodes = trip.split("-");
+		for(int i=0, j=1;i<(cityCodes.length);i++,j++) {
+			Route r = new Route(cityCodes[i] + cityCodes[j]);
+			routes[i] = r;
+		}
+		stops = cityCodes.length-1;
+	}
+	
+	public Trip(String trip, int _distance) {
+		super();
+		distance = _distance;
+	}
+	
+	public Route[] splitIntoRoutes() {
+		// TODO create method
+		return null;
+	}
 
 }
