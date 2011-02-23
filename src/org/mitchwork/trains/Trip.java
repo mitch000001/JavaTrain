@@ -1,10 +1,13 @@
 package org.mitchwork.trains;
 
+import java.util.Vector;
+
 public class Trip {
 	private String name;
 	private int distance;
 	private int stops;
-	private Route[] routes;
+	private Vector<Route> routes;
+	private City startingCity;
 	
 	public String getName() {
 		return name;
@@ -18,8 +21,12 @@ public class Trip {
 		return stops;
 	}
 	
-	public Route[] getRoutes() {
+	public Vector<Route> getRoutes() {
 		return routes;
+	}
+	
+	public City getStartingCity() {
+		return startingCity;
 	}
 	
 	public void setName(String _name) {
@@ -34,15 +41,19 @@ public class Trip {
 		stops = _stops;
 	}
 	
-	public void setRoutes(Route[] _routes) {
+	public void setRoutes(Vector<Route> _routes) {
 		routes = _routes;
 	}
 	
-	public Trip(String _name, int _distance, int _stops, Route[] _routes) {
-		name = _name;
-		distance = _distance;
-		stops = _stops;
-		routes = _routes;
+	public void setStartingCity(City sC) {
+		startingCity = sC;
+	}
+	
+	public Trip(String name, int distance, int stops, Vector<Route> routes) {
+		this.name = name;
+		this.distance = distance;
+		this.stops = stops;
+		this.routes = routes;
 	}
 	
 	/**
@@ -53,19 +64,46 @@ public class Trip {
 		String[] cityCodes = trip.split("-");
 		for(int i=0, j=1;i<(cityCodes.length);i++,j++) {
 			Route r = new Route(cityCodes[i] + cityCodes[j]);
-			routes[i] = r;
+			routes.add(r);
 		}
-		stops = cityCodes.length-1;
+		this.stops = cityCodes.length-1;
+		this.name = trip;
 	}
 	
-	public Trip(String trip, int _distance) {
-		super();
-		distance = _distance;
+	public Trip(String trip, int distance) {
+		this(trip);
+		this.distance = distance;
 	}
 	
-	public Route[] splitIntoRoutes() {
-		// TODO create method
-		return null;
+	public Trip(City startingCity) {
+		this.startingCity = startingCity;
+		this.name = startingCity.getShortCode();
+		this.distance = 0;
+		this.stops = 0;
+		this.routes = null;
+	}
+	
+	public void appendRoute(Route r) {
+		this.setName(this.name+"-"+r.getEndCity().getShortCode()); 
+		this.setDistance(this.distance+r.getDistance()); 
+		this.setStops(this.stops+1); 
+		this.routes.add(r);
+	}
+	
+	public boolean containsCity(City c) {
+		for (Route r : routes) {
+			if (r.getName().contains(c.getShortCode()))
+				return true;
+		}
+		return false;
+	}
+	
+	public boolean containsRoute(Route route) {
+		for (Route r : routes) {
+			if (r.getName().matches(route.getName()))
+				return true;
+		}
+		return false;
 	}
 
 }

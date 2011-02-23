@@ -16,28 +16,18 @@ public class City {
 		name = _name;
 	}
 	
-	public void setShortCode(String _shortCode) {
-		shortCode = _shortCode.toUpperCase();
+	public void setShortCode(String shortCode) {
+		this.shortCode = shortCode.toUpperCase();
 	}
 	
-	public City(String _name, String _shortCode) {
-		name = _name;
-		shortCode = _shortCode.toUpperCase();
+	public City(String name, String shortCode) {
+		this.name = name;
+		this.shortCode = shortCode.toUpperCase();
 	}
 	
-	public City(String _shortCode) {
-		shortCode = _shortCode.toUpperCase();
-		name = _shortCode;
-	}
-	
-	public boolean hasRoutes() {
-		// TODO implement method
-		return false;
-	}
-	
-	public int countRoutes() {
-		// TODO implement method
-		return 0;
+	public City(String shortcode) {
+		this.shortCode = shortCode.toUpperCase();
+		name = shortCode;
 	}
 
 }

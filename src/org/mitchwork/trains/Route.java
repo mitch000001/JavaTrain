@@ -38,11 +38,11 @@ public class Route {
 		distance = _distance;
 	}
 	
-	public Route(String _name, City _startCity, City _endCity, int _distance) {
-		name = _name;
-		startCity = _startCity;
-		endCity = _endCity;
-		distance = _distance;
+	public Route(String name, City startCity, City endCity, int distance) {
+		this.name = name;
+		this.startCity = startCity;
+		this.endCity = endCity;
+		this.distance = distance;
 	}
 	
 	public Route(String _name) {
@@ -60,9 +60,9 @@ public class Route {
 	 * @param _startCity
 	 * @param _endCity
 	 */
-	public Route(City _startCity, City _endCity) {
-		startCity = _startCity;
-		endCity = _endCity;
+	public Route(City startCity, City endCity) {
+		this.startCity = startCity;
+		this.endCity = endCity;
 	}
 	
 	/**
