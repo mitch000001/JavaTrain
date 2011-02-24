@@ -105,5 +105,9 @@ public class Trip {
 		}
 		return false;
 	}
+	
+	public String toString() {
+		return name;
+	}
 
 }
