@@ -46,8 +46,10 @@ public class Route {
 	}
 	
 	public Route(String _name) {
-		startCity.setShortCode(_name.substring(0, 1));
-		endCity.setShortCode(_name.substring(1, 2));
+		String sC = _name.substring(0, 1);
+        String eC = _name.substring(1, 2);
+        startCity = new City(sC);
+		endCity = new City(eC);
 		if (_name.length()>2) {
 			String dist = _name.substring(2, 3);
 			distance = Integer.parseInt(dist);

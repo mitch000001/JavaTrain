@@ -5,7 +5,6 @@ import java.util.Scanner;
 import java.util.Vector;
 
 public class Trains {
-	private static String routeInput;
 	
 	// Given cities
 	public static City c1 = new City("A");
@@ -53,7 +52,7 @@ public class Trains {
 		System.out.println("If you want to quit the program, press 'q'.");
 		System.out.println("Please enter your choice (g/t/c/q):");
 		String input = scanner.next();
-		while (input.length()<2) {
+		while (input.length()<1) {
 			System.out.println("Please enter only one Character");
 			input = scanner.next();
 		}
@@ -101,7 +100,7 @@ public class Trains {
 		System.out.print("Please enter a trip to test its existence and to calculate the distance. ");
 		System.out.println("The convention of input is 'letter'-'letter'-'letter..., e.g. A-B-C:");
 		String input = scanner.next();
-		while (!input.matches("\\(\\p{Alpha}-\\)\\p{Alpha}")){
+		while (!input.matches("{\\p{Alpha}-}*\\p{Alpha}")){
 			System.out.println("You have entered a sequence that is not supported. Please try again:");
 			input = scanner.next();
 		}
@@ -123,7 +122,7 @@ public class Trains {
 	private static void enterRoute() {
 		System.out.println("Please enter a graph to test its existence. The convention of input is 'letter''letter''digit', e.g. 'AB5':");
 		String input = scanner.next();
-		while (input.length()<4) {
+		while (input.length()<3) {
 			System.out.println("You have entered too much Characters. The input is limited to 3 Characters.");
 			System.out.println("Please try again:");
 			input = scanner.next();
@@ -140,7 +139,7 @@ public class Trains {
 		}
 		System.out.println("Do you want to enter another graph? (y/n)");
 		input = scanner.next();
-		if (input.toLowerCase()=="y") {
+		if (input.toLowerCase().charAt(0)=='y') {
 			enterRoute();
 		} else  {
 			System.out.println("Returning to main menu...");

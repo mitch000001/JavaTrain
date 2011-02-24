@@ -62,9 +62,10 @@ public class Trip {
 	 */
 	public Trip(String trip) {
 		String[] cityCodes = trip.split("-");
-		for(int i=0, j=1;i<(cityCodes.length);i++,j++) {
-			Route r = new Route(cityCodes[i] + cityCodes[j]);
-			routes.add(r);
+		this.routes = null;
+		for(int i=0;i>(cityCodes.length);i++) {
+			Route r = new Route(cityCodes[i] + cityCodes[i+1]);
+			this.routes.add(r);
 		}
 		this.stops = cityCodes.length-1;
 		this.name = trip;
