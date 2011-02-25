@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
+<<<<<<< HEAD
   <component name="NewModuleRootManager" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/bin" />
+=======
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+>>>>>>> ce269e9f93715b5558aec9c5276f0ed4a4da38c1
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
+<<<<<<< HEAD
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="jdk" jdkName="1.6" jdkType="JavaSDK" />
+=======
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+>>>>>>> ce269e9f93715b5558aec9c5276f0ed4a4da38c1
   </component>
 </module>
 

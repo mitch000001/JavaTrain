@@ -27,7 +27,7 @@ public class City {
 	
 	public City(String shortCode) {
 		this.shortCode = shortCode.toUpperCase();
-		name = shortCode;
+		this.name = shortCode;
 	}
 
 }
